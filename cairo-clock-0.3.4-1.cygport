@@ -1,0 +1,5 @@
+inherit gnome2
+
+DESCRIPTION="Analog clock (requires compositing manager)"
+HOMEPAGE="http://macslow.thepimp.net/?page_id=23"
+SRC_URI="http://macslow.thepimp.net/projects/cairo-clock/${P}.tar.gz"

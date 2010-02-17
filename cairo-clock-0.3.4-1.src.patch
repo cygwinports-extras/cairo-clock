@@ -1,0 +1,24 @@
+M_PI in <math.h> is not strictly C99
+
+--- origsrc/cairo-clock-0.3.4/configure.ac	2008-02-27 05:02:57.000000000 -0600
++++ src/cairo-clock-0.3.4/configure.ac	2010-02-17 00:54:24.241158500 -0600
+@@ -96,7 +96,7 @@ CLOCK_DEFINES='-DDATA_DIR="\"$(datadir)\
+ AC_SUBST([CLOCK_DEFINES])
+ 
+ dnl CFLAGS
+-CFLAGS="$CFLAGS -Wall -pedantic -std=c99 -fno-strict-aliasing -fmessage-length=0 -D_FORTIFY_SOURCE=2"
++CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -fno-strict-aliasing -fmessage-length=0 -D_FORTIFY_SOURCE=2"
+ 
+ AC_CONFIG_FILES([
+ 	Makefile
+--- origsrc/cairo-clock-0.3.4/src/Makefile.am	2008-02-27 05:02:57.000000000 -0600
++++ src/cairo-clock-0.3.4/src/Makefile.am	2010-02-17 00:44:34.015399500 -0600
+@@ -1,7 +1,7 @@
+ bin_PROGRAMS = cairo_clock
+ transform = s/_/-/g
+ 
+-cairo_clock_LDFLAGS = -Wl, --export-dynamic
++cairo_clock_LDFLAGS = -export-dynamic
+ 
+ cairo_clock_LDADD =	\
+ 	$(GLIB_LIBS)	\
